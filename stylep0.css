@@ -17,21 +17,22 @@ h2 {
     padding: 10px;
     grid-column-gap: 20px;
     grid-row-gap: 7px;
-    grid-template-columns: 128px 100px  auto;
+    grid-template-columns: 64px 100px  auto;
     }
 .elem {
     background-color: white;
     font-family: sans-serif;
     font-size: 14px;
     padding: 1px;
-    text-align: end;
+    text-align: right;
+    
     }
 div > a{
     text-decoration-line: none;
     }
 #caixa{
     height: 40px;
-    width: 500px;
+    width: 40vw;
     border-radius:20px;
     border-style: solid;
     border-color: #f2f2f2;
@@ -50,7 +51,7 @@ div > a{
 }
 .acaixa{
     height: 32px;
-    width: 400px;
+    width: 40vw;
     border-radius:16px;
     border-style: solid;
     border-color: #f2f2f2;
