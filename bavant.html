@@ -5,14 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stylep0.css">
         <style>
-            form{
-                margin-left: 50px;
+             #bloco2 {
+                background-color: white;
+                display: grid;
+                padding: 10px;
+                grid-column-gap: 8px;
+                grid-row-gap: 7px;
+                grid-template-columns: 200px 200px  auto;
             }
+            .elem2 {
+                background-color: white;
+                font-family: sans-serif;
+                font-size: 14px;
+                padding: 1px;
+                text-align: left;
+            }
+            div > input {
+                    height: 18px;
+                    width: 180px;
+                    border-radius:1px;
+                    border-style: solid;
+                    border-color: lightgrey;
+                    border-width: 1px;
+                    margin: auto;
+                    font-size: 14px;
+                    padding-left: 16px
+            }
+            div> input:hover {
+                border-bottom-color: grey;
+                border-left-color: grey;
+                border-right-color: grey;
+            }
+           div> input:focus {
+                background-color: #F2F2F2;
+
+            }            
             #botao{
                 height: 30px;
                 width: 128px;
                 border-radius:4px;
-                margin-left: -4px;
+                margin-top: 20px;
+                margin-left: 54px;
                 font-size: 14px;
                 background-color: #4885ed;
                 color: white;
@@ -30,16 +63,34 @@
             <div class="elem">
                 <a href="btexto.html">Busca Texto</a></div>
         </div>
-        <form action="https://google.com/search">
-            <input class=acaixa type="text" name="as_q">
-              <span style='font-family: sans-serif; font-size: 12px; margin-left: 32px;'>Procure por todas as palavras, p. ex.: padaria confeitaria carioca;</span><br><br>
-            <input class=acaixa type="text" name="as_epq">
-              <span style='font-family: sans-serif; font-size: 12px; margin-left: 32px; '>Procure pela frase toda entre aspas p. ex.: "Padaria Carioca";</span><br><br>
-            <input class=acaixa type="text" name="as_oq">
-              <span style='font-family: sans-serif; font-size: 12px; margin-left: 32px;'>Procure por qualquer das palavras, p. ex.: manga OR morango;</span><br><br>
-            <input class=acaixa type="text" name="as_eq">
-              <span style='font-family: sans-serif; font-size: 12px; margin-left: 32px;'>Exclua essas palavras da busca.</span><br><br>
-            <input id=botao type="submit" value="Busca Avan&ccedil;ada">
+ <form action="https://google.com/search">
+        <div id="bloco2">
+<! Linha 1:>
+            <div class="elem2">Procure por todas as palavras</div>
+            <div>
+                <input type="text" name="as_q">
+            </div>
+            <div class="elem2">p. ex.: padaria confeitaria carioca</div>
+<! Linha 2>
+            <div class="elem2">Procure pela frase toda entre aspas</div>
+            <div>
+                <input type="text" name="as_epq">
+            </div>
+            <div class="elem2">p. ex.: "Padaria Carioca"</div>
+<! Linha 3:>
+            <div class="elem2">Procure por qualquer das palavras</div>
+            <div>
+                <input type="text" name="as_oq">
+            </div>
+            <div class="elem2">p. ex.: manga OR morango</div>
+<! Linha 4:>
+            <div class="elem2">Exclua essas palavras da busca</div>
+            <div>
+                <input type="text" name="as_eq"><br><br>
+            </div>
+            <div class="elem2       ">p. ex.: antiga </div>       
+        </div>
+        <input id=botao type="submit" value="Busca Avan&ccedil;ada">
         </form>
         <h2>Project0 por: Manoel Pedro</h2>
     </body>
