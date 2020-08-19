@@ -17,7 +17,7 @@ h2 {
     padding: 10px;
     grid-column-gap: 20px;
     grid-row-gap: 7px;
-    grid-template-columns: 64px 100px  auto;
+    grid-template-columns: 128px 16px  auto;
     }
 .elem {
     background-color: white;
@@ -32,7 +32,7 @@ div > a{
     }
 #caixa{
     height: 40px;
-    width: 40vw;
+    width: 45vw;
     border-radius:20px;
     border-style: solid;
     border-color: #f2f2f2;
@@ -51,7 +51,7 @@ div > a{
 }
 .acaixa{
     height: 32px;
-    width: 40vw;
+    width: 45vw;
     border-radius:16px;
     border-style: solid;
     border-color: #f2f2f2;
