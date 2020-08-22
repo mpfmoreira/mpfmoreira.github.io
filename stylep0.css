@@ -18,7 +18,7 @@ footer {
     padding: 10px;
     grid-column-gap: 20px;
     grid-row-gap: 4px;
-    grid-template-columns: 140px auto  120px;
+    grid-template-columns: 140px auto  100px;
     }
 .referencia {
     background-color: white;
