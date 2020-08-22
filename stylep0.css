@@ -18,14 +18,14 @@ footer {
     padding: 10px;
     grid-column-gap: 20px;
     grid-row-gap: 4px;
-    grid-template-columns: 140px 16px  auto;
+    grid-template-columns: 140px auto  120px;
     }
 .referencia {
     background-color: white;
     font-family: sans-serif;
     font-size: 12px;
     padding: 1px;
-    text-align: right;
+    text-align: left;
     }
 .elem {
     background-color: white;
