@@ -17,8 +17,15 @@ footer {
     display: grid;
     padding: 10px;
     grid-column-gap: 20px;
-    grid-row-gap: 7px;
-    grid-template-columns: 128px 16px  auto;
+    grid-row-gap: 4px;
+    grid-template-columns: 140px 16px  auto;
+    }
+.referencia {
+    background-color: white;
+    font-family: sans-serif;
+    font-size: 12px;
+    padding: 1px;
+    text-align: right;
     }
 .elem {
     background-color: white;
@@ -26,7 +33,6 @@ footer {
     font-size: 14px;
     padding: 1px;
     text-align: right;
-    
     }
 div > a{
     text-decoration-line: none;
