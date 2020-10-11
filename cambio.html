@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cambio</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('form').onsubmit = function() {
+                    fetch('https://api.exchangeratesapi.io/latest?base=USD')
+                    .then(response => response.json())
+                    .then(data => { 
+                        const quanto = document.querySelector('#quanto').value;
+                        const rate = data.rates.BRL;
+                        var a = rate * quanto;
+                        if ( !isNaN(a) ) {
+                            var a = rate * quanto
+                            r = `${quanto} dólar(es) está(ão) valendo R$ ${a.toFixed(2)}`
+                            document.querySelector('#cotacao').innerHTML = r;
+                        } else {
+                            document.querySelector('#cotacao').innerHTML = 'Valor inválido - use ponto ao invés de vírgula para separar os centavos.'
+                        }
+                    })                          
+                    .catch(error => {
+                        console.log('Error',error);
+                    });
+                    return false;
+                }
+            });
+            
+        </script>
+<style>
+    body {
+        margin-left:1em;
+    }
+    #cotacao {
+        margin-top:40px;
+        font-family: verdana;
+        font-size:14px;
+        color:darkblue
+    }
+</style>
+    </head>
+    <body>
+        <h1>Converte de dólares para reais</h1>
+        <hr>
+        <form>
+            <input id="quanto" placeholder="Quantos dolares?" type="text">
+            <input type="submit" value="Converte"> 
+        </form>
+        <div id="cotacao"></div>
+
+    </body>
+</html>
