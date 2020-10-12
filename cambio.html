@@ -3,18 +3,44 @@
     <head>
         <title>Cambio</title>
         <script>
+            function pegaURL() {
+                const parte1 = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial='";
+                const parte2 = "'&@dataFinalCotacao='";
+                const parte3 = "'&$top=100&$format=json";
+                var h = new Date();
+                var df = h.getDate();
+                var mf = 1 + h.getMonth();
+                var yf = h.getFullYear();
+                h.setDate(h.getDate() - 5);
+                var di = h.getDate();
+                var mi = 1 + h.getMonth();
+                var yi = h.getFullYear();
+                return `${parte1}${mi}-${di}-${yi}${parte2}${mf}-${df}-${yf}${parte3}`
+            }
+                
             document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('form').onsubmit = function() {
-                    fetch('https://api.exchangeratesapi.io/latest?base=USD')
+                    document.querySelector('#dia').innerHTML = '';
+                    fetch(pegaURL())
                     .then(response => response.json())
                     .then(data => { 
                         const quanto = document.querySelector('#quanto').value;
-                        const rate = data.rates.BRL;
+                        let recente = data.value.pop();
+                        let rate = recente.cotacaoVenda;
+                        console.log(rate)
                         var a = rate * quanto;
                         if ( !isNaN(a) ) {
                             var a = rate * quanto
-                            r = `${quanto} dólar(es) está(ão) valendo R$ ${a.toFixed(2)}`
+                            if ( quanto == 1 ) {
+                                var r = `${quanto} dólar está valendo R$ ${a.toFixed(2)}`
+                            } else {
+                                var r = `${quanto} dólares estão valendo R$ ${a.toFixed(2)}`
+                            }
+                            
                             document.querySelector('#cotacao').innerHTML = r;
+                            let dd = recente.dataHoraCotacao.split('-')
+                            let dia = `No dia: ${dd[2].substring(1,2)}/${dd[1]}/${dd[0]}.`
+                            document.querySelector('#dia').innerHTML = dia;
                         } else {
                             document.querySelector('#cotacao').innerHTML = 'Valor inválido - use ponto ao invés de vírgula para separar os centavos.'
                         }
@@ -33,6 +59,12 @@
     }
     #cotacao {
         margin-top:40px;
+        margin-bottom: 20px;
+        font-family: verdana;
+        font-size:14px;
+        color:darkblue
+    }
+    #dia {
         font-family: verdana;
         font-size:14px;
         color:darkblue
@@ -47,6 +79,6 @@
             <input type="submit" value="Converte"> 
         </form>
         <div id="cotacao"></div>
-
+        <div id="dia"></div>
     </body>
 </html>
