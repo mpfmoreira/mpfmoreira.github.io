@@ -24,18 +24,23 @@
                     fetch(pegaURL())
                     .then(response => response.json())
                     .then(data => { 
+                        const rbs = document.querySelectorAll('input[name="direcao"]');
+                        console.log(rbs[0].checked,rbs[1].checked)
                         const quanto = document.querySelector('#quanto').value;
                         let recente = data.value.pop();
                         let rate = recente.cotacaoVenda;
                         console.log(rate)
-                        var a = rate * quanto;
-                        if ( !isNaN(a) ) {
-                            var a = rate * quanto
-                            if ( quanto == 1 ) {
-                                var r = `${quanto} dólar está valendo R$ ${a.toFixed(2)}`
-                            } else {
-                                var r = `${quanto} dólares estão valendo R$ ${a.toFixed(2)}`
-                            }
+                        if (rbs[0].checked) {
+                            var a = rate * quanto;
+                                if ( quanto == 1 ) {var sdirecao = ' dólar está valendo R$'}
+                                else {var sdirecao = ' dólares estão valendo R$'}
+                        } else {
+                            var a = quanto / rate;
+                            if ( quanto == 1 ) {var sdirecao = ' real está valendo Us$'}
+                                else {var sdirecao = ' reais estão valendo Us$'}
+                        }
+                        if ( !isNaN(a) && quanto > 0.01) {
+                            var r = `${quanto}${sdirecao}${a.toFixed(2)}`
                             
                             document.querySelector('#cotacao').innerHTML = r;
                             let dd = recente.dataHoraCotacao.split('-')
@@ -57,6 +62,39 @@
     body {
         margin-left:1em;
     }
+    h1 {
+        font-family: verdana;
+    }
+    fieldset {
+        font-family: verdana;
+        font-size:14px;
+        border-color: aquamarine;
+        margin-bottom: 40px;
+        width: 32em;
+    }
+    
+    #retorna {
+        
+        font-family: sans-serif;
+        font-size: 18px;
+        height: 28px;
+        border-radius: 0.7em;
+        margin-left: 0.5em;
+        box-sizing:border-box;
+        background-color: antiquewhite;
+    }
+    #quanto {
+        font-size: 18px;
+    }
+    #botao {
+        font-family: sans-serif;
+        font-size: 18px;
+        height: 28px;
+        border-radius: 1em;
+        margin-left: 0.5em;
+        box-sizing:border-box;
+        background-color: coral;
+    }
     #cotacao {
         margin-top:40px;
         margin-bottom: 20px;
@@ -72,13 +110,21 @@
 </style>
     </head>
     <body>
-        <h1>Converte de dólares para reais</h1>
+        <h1>Câmbio</h1>
         <hr>
+        <fieldset>
+            <legend>Direção da conversão</legend>
+                <input type="radio" name="direcao" value="dolarreal" checked> De dólar para real.
+                <input type="radio" name="direcao" value="realdolar"> De real para dólar.
+        </fieldset>
         <form>
-            <input id="quanto" placeholder="Quantos dolares?" type="text">
-            <input type="submit" value="Converte"> 
+            <input id="quanto" placeholder="Valor a converter" type="text">
+            <input id="botao" type="submit" value="Converte"> 
         </form>
         <div id="cotacao"></div>
         <div id="dia"></div>
+        <div>
+            <button id="retorna"><a style='text-decoration: none;' href="index.html"> Volta </a></button>
+        </div>
     </body>
 </html>
