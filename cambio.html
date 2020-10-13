@@ -25,11 +25,9 @@
                     .then(response => response.json())
                     .then(data => { 
                         const rbs = document.querySelectorAll('input[name="direcao"]');
-                        console.log(rbs[0].checked,rbs[1].checked)
                         const quanto = document.querySelector('#quanto').value;
                         let recente = data.value.pop();
                         let rate = recente.cotacaoVenda;
-                        console.log(rate)
                         if (rbs[0].checked) {
                             var a = rate * quanto;
                                 if ( quanto == 1 ) {var sdirecao = ' dólar está valendo R$'}
@@ -41,10 +39,9 @@
                         }
                         if ( !isNaN(a) && quanto > 0.01) {
                             var r = `${quanto}${sdirecao}${a.toFixed(2)}`
-                            
                             document.querySelector('#cotacao').innerHTML = r;
                             let dd = recente.dataHoraCotacao.split('-')
-                            let dia = `No dia: ${dd[2].substring(1,2)}/${dd[1]}/${dd[0]}.`
+                            let dia = `No dia: ${dd[2].substring(0,2)}/${dd[1]}/${dd[0]}.`
                             document.querySelector('#dia').innerHTML = dia;
                         } else {
                             document.querySelector('#cotacao').innerHTML = 'Valor inválido - use ponto ao invés de vírgula para separar os centavos.'
