@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CofiTable</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="stylect.css">
+        <style>
+            table{
+                margin: 16px;
+                border-collapse: collapse;
+            }
+            th{
+                font-weight: bold;
+            }
+            .col1{
+                column-width: 128px;
+                text-align: left;
+                padding: 2px;
+            }
+            .col2{
+                column-width: 64px;
+                text-align: right;
+                padding: 2px;
+            }
+            #coln{
+                column-width: 64px;
+                text-align: right;
+                padding: 2px;
+                font-weight: bold;
+            }
+            .colp{
+                column-width: 128px;
+                text-align: left;
+                padding: 10px;
+            }
+            td{
+                text-align: right;
+                padding: 2px; 
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1>
+            <img src ="cofi.gif" alt="C O F I" width="144px" /> - Tabela de vendas
+            <h2>Vendas na semana</h2>
+        </h1><br>
+        <div> <span style='font-family: sans-serif; margin-left: 16px'>Mês: agosto</span></div><br>
+        <table border="2">
+            <thead>
+                <tr>
+                    <th class=col1>Produto</th>
+                    <th class=col2>1</th>
+                    <th class=col2>2</th>
+                    <th id=coln>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class=colp>Bossa</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td class=colp>Louis</td>
+                    <td>3</td>
+                    <td>8</td>
+                    <td>11</td>
+                </tr>
+            </tbody>
+    </body>
+</html>
+
