@@ -1,6 +1,42 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+
+import time
+from selenium import webdriver
+def lerSite():
+    DATA_URL = "http://www.md-alliance.com.br:9080/pontal/"
+    driver = webdriver.Chrome()
+    driver.get(DATA_URL)
+    driver.implicitly_wait(0.5)
+
+    ousuario = driver.find_element(by=By.NAME, value="usuario")
+    asenha = driver.find_element(by=By.ID, value="password")
+
+    ousuario.send_keys("mpfm")
+    asenha.send_keys("mpfm")
+    d1 = driver.find_element(by=By.CLASS_NAME, value="panel-footer")
+    d2 = d1.find_element(by=By.CLASS_NAME, value="pull-right")
+    lista = d2.find_elements(by=By.TAG_NAME, value="input")
+    submit_input = lista[0]
+    time.sleep(2)
+
+    x = submit_input.click()
+
+    driver.switch_to.new_window('tab')
+    time.sleep(5)
+    parte1="http://www.md-alliance.com.br:9080/pontal/extratotable.php?conta=5"
+    parte2="&empresa=0"
+    parte3="&cr=0&bem=0&contrato=0&inicio=2023-03-09&fim=2023-04-07"
+    parte4="&credito=true&debito=true&programado=true&previsto=true&efetuado=true&boleto=true"
+    DATA_URL = parte1 + parte2 + parte3 + parte4
+    driver.get(DATA_URL)
+    driver.implicitly_wait(0.5)
+    fonte = driver.page_source
+    driver.quit()
+    return fonte
+
+
 st.title('Corridas do Uber em Nova Iorque')
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
