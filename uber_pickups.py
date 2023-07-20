@@ -35,7 +35,10 @@ def lerSite():
     fonte = driver.page_source
     driver.quit()
     return fonte
-
+source = lerSite()
+lista = pd.read_html(source,thousands=None)
+df = lista[0]
+st.write(df)
 
 st.title('Corridas do Uber em Nova Iorque')
 DATE_COLUMN = 'date/time'
