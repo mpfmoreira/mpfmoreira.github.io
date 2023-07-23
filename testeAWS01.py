@@ -51,7 +51,7 @@ else:
 ### na lista estão todas as planilhas do arquivo. Neste caso, é só uma
 ###  df é a planilha que foi criada pelo sistema
 df = lista[0]
-st.write(lista)
+
 ###  troca pontos e vírgulas. Acrescenta cabeçalho que está em branco
 df["Valor"] = df["Valor"].str.replace(".","",regex=False)
 df["Valor"] = df["Valor"].str.replace(",",".",regex=True)
@@ -102,6 +102,5 @@ for i in range(1,x.size):
         df2.loc[(i-0.5)] = [dia,'..','Boleto','','','','','','','','']
 ### ordena df2
 df2 = df2.sort_index().reset_index(drop=True)
+st.dataframe(df2)
 
-
-print(" FIM ")
