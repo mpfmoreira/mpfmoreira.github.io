@@ -110,7 +110,7 @@ df2 = df2.sort_index().reset_index(drop=True)
 
 ### Grava e coloca formato em Valor e em Data
 #df2.to_excel('testeReverso1.xlsx')
-gravador = pd.ExcelWriter('/Users/mpedro/myproject/testeReverso6.xlsx',engine='xlsxwriter')
+gravador = pd.ExcelWriter('/Users/mpedro/Downloads/testeReverso6.xlsx',engine='xlsxwriter')
 df2.to_excel(gravador, sheet_name='Movimento')
 arquivo=gravador.book
 plan=gravador.sheets['Movimento']
