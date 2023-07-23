@@ -42,7 +42,7 @@ def lerSite():
     fonte = driver.page_source
     driver.quit()
     return fonte
-
+st.title('Teste aws')
 if 5 > 6 :
     source = lerSite()
     lista = pd.read_html(source,thousands=None)
