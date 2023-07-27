@@ -63,11 +63,8 @@ with st.form("Intervalo"):
     submitted = outralinha[2].form_submit_button("Bora lá?","vai?")
 
 if submitted:
-    if 5 > 6 :
+    if 5 > 4 :
         source = lerSite(d[0].strftime("%Y-%m-%d"),d[1].strftime("%Y-%m-%d"),usuario,senha)
-        ArqTeste = open("/Users/mpedro/fluxoluz/teste5.html", "w")
-        ArqTeste.write(source)
-        ArqTeste.close()
         lista = pd.read_html(source,thousands=None)
     else:
 ### na lista estão todas as planilhas do arquivo. Neste caso, é só uma
